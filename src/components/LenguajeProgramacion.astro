@@ -1,0 +1,184 @@
+---
+import GitHub from "../components/icons/iconsSocials/GitHub.astro";
+
+import NextJS from "../components/icons/iconsPrograms/Next.astro";
+import Html from "../components/icons/iconsPrograms/Html.astro";
+import Tailwind from "../components/icons/iconsPrograms/Tailwind.astro";
+import JavaScript from "../components/icons/iconsPrograms/JavaScript.astro";
+import Css from "../components/icons/iconsPrograms/Css.astro";
+import React from "../components/icons/iconsPrograms/React.astro";
+import Mysql from "../components/icons/iconsPrograms/Mysql.astro";
+import Sql from "../components/icons/iconsPrograms/Sql.astro";
+import Csharp from "../components/icons/iconsPrograms/Csharp.astro";
+
+import VisualStudio from "../components/icons/iconsTools/VisualStudio.astro";
+import VisualStudioCode from "../components/icons/iconsTools/VisualStudioCode.astro";
+import Postman from "../components/icons/iconsTools/Postman.astro";
+import PowerShell from "../components/icons/iconsTools/PowerShell.astro";
+import AstroIcon from "./icons/iconsPrograms/AstroIcon.astro";
+import TypeScript from "./icons/iconsPrograms/TypeScript.astro";
+import PostgreSql from "./icons/iconsPrograms/PostgreSql.astro";
+import Express from "./icons/iconsPrograms/Express.astro";
+import Node from "./icons/iconsPrograms/Node.astro";
+---
+
+<div class="contenido">
+  <div class="scroll w-[90%]" style="--time:20s">
+    <div>
+      <span>Html5</span>
+      <span>Css</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Next</span>
+      <span>Astro</span>
+    </div>
+    <div>
+      <span>Visual Studio 17</span>
+      <span>Visual Studio 19</span>
+      <span>Visual Studio Code</span>
+      <span>Postman</span>
+      <span>Warp</span>
+      <span>Power Shell</span>
+    </div>
+  </div>
+  <div class="scroll w-[90%]" style="--time:30s">
+    <div>
+      <span>Githut</span>
+      <span>Git</span>
+      <span>C#</span>
+      <span>Node</span>
+      <span>Sql</span>
+    </div>
+    <div>
+      <span>Visual Studio 17</span>
+      <span>Visual Studio 19</span>
+      <span>Postman</span>
+      <span>Warp</span>
+      <span>Power Shell</span>
+    </div>
+  </div>
+  <div class="scroll w-[90%]" style="--time:40s">
+    <div>
+      <span>MongoDB</span>
+      <span>Tailwindcss</span>
+      <span>Bootstrap5</span>
+      <span>Sass</span>
+    </div>
+    <div>
+      <span>Visual Studio 17</span>
+      <span>Visual Studio 19</span>
+      <span>Postman</span>
+      <span>Warp</span>
+      <span>Power Shell</span>
+    </div>
+  </div>
+
+  <div class="scroll w-[90%]" style="--time:10s">
+    <div>
+      <span><Html class="size-20" /></span>
+      <span><Css class="size-20" /></span>
+      <span><Node class="size-20" /></span>
+      <span><JavaScript class="size-20" /></span>
+      <span><TypeScript class="size-20" /></span>
+      <span><AstroIcon class="size-20" /></span>
+      <span><Tailwind class="size-20" /></span>
+      <span><Sql class="size-20" /></span>
+      <span><Mysql class="size-20" /></span>
+      <span><PostgreSql class="size-20" /></span>
+      <span><React class="size-20" /></span>
+      <span><Express class="size-20" /></span>
+      <span><NextJS class="size-20" /></span>
+      <span><Csharp class="size-20" /></span>
+    </div>
+  </div>
+  <div class="scroll w-[90%] imgBox" style="--time:10s">
+    <div>
+      <span><GitHub class="size-20" /></span>
+      <span><VisualStudio class="size-20" /></span>
+      <span><VisualStudioCode class="size-20" /></span>
+      <span><Postman class="size-20" /></span>
+      <span><PowerShell class="size-20" /></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .contenido {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    /* background: #fff; */
+    flex-direction: column;
+  }
+
+  .scroll {
+    position: relative;
+    display: flex;
+    /* width: 700px; */
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #fff 20%,
+      #fff 80%,
+      transparent
+    );
+  }
+
+  .scroll div {
+    white-space: nowrap;
+    animation: scroll var(--time) linear infinite;
+    animation-delay: calc(var(--time) * -1);
+  }
+
+  .scroll div:nth-child(2) {
+    animation: scroll2 var(--time) linear infinite;
+    animation-delay: calc(var(--time) / -2);
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes scroll2 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
+  .scroll div span {
+    display: inline-block;
+    margin: 10px;
+    letter-spacing: 0.2em;
+    background: #686666;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: 0.5s;
+  }
+
+  .scroll div span:hover {
+    background: #118ab2;
+    cursor: pointer;
+  }
+
+  .imgBox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imgBox {
+    scale: 0.8;
+  }
+</style>

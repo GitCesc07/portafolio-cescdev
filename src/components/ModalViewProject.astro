@@ -1,0 +1,190 @@
+---
+import Link from "../components/icons/iconsTools/Link.astro";
+import GitHub from "../components/icons/iconsSocials/GitHub.astro";
+import NextJS from "../components/icons/iconsPrograms/Next.astro";
+import Html from "../components/icons/iconsPrograms/Html.astro";
+import Tailwind from "../components/icons/iconsPrograms/Tailwind.astro";
+import JavaScript from "../components/icons/iconsPrograms/JavaScript.astro";
+import Css from "../components/icons/iconsPrograms/Css.astro";
+import React from "../components/icons/iconsPrograms/React.astro";
+import Mysql from "../components/icons/iconsPrograms/Mysql.astro";
+import Sql from "../components/icons/iconsPrograms/Sql.astro";
+import TypeScript from "./icons/iconsPrograms/TypeScript.astro";
+import AstroIcon from "./icons/iconsPrograms/AstroIcon.astro";
+import Express from "./icons/iconsPrograms/Express.astro";
+import Swagger from "./icons/iconsPrograms/Swagger.astro";
+import BetterAuth from "./icons/iconsPrograms/BetterAuth.astro";
+import ReactQueryIcon from "./icons/iconsPrograms/ReactQueryIcon.astro";
+import ReactRouter from "./icons/iconsPrograms/ReactRouter.astro";
+import Zod from "./icons/iconsPrograms/Zod.astro";
+import Shadcn from "./icons/iconsPrograms/Shadcn.astro";
+import Node from "./icons/iconsPrograms/Node.astro";
+import Close from "./icons/Close.astro";
+import RadixUI from "./icons/iconsPrograms/RadixUI.astro";
+import JWT from "./icons/iconsPrograms/JWT.astro";
+import PDF from "./icons/iconsPrograms/PDF.astro";
+
+const ICONS_COMPONENTS: Record<string, any> = {
+  html: Html,
+  css: Css,
+  javascript: JavaScript,
+  typescript: TypeScript,
+  tailwindcss: Tailwind,
+  astroIcon: AstroIcon,
+  react: React,
+  next_js: NextJS,
+  mysql: Mysql,
+  sql: Sql,
+  node_js: Node,
+  express_js: Express,
+  swagger: Swagger,
+  better_auth: BetterAuth,
+  reactquery: ReactQueryIcon,
+  reactrouter: ReactRouter,
+  zod: Zod,
+  shadcn: Shadcn,
+  radixui: RadixUI,
+  jwt: JWT,
+  pdfmake: PDF,
+};
+
+interface Modul {
+  titleModuls: string;
+  infoModuls: {
+    subtitle: string;
+  }[];
+}
+
+interface Props {
+  id: number;
+  projectTags:
+    | {
+        backend: {
+          tags: {
+            name: string;
+            class: string;
+            icon: string;
+          }[];
+        };
+        frontend: {
+          tags: {
+            name: string;
+            class: string;
+            icon: string;
+          }[];
+        };
+        tags?: undefined;
+      }
+    | {
+        tags: {
+          name: string;
+          class: string;
+          icon: string;
+        }[];
+        backend?: undefined;
+        frontend?: undefined;
+      }
+    | undefined;
+  moduls?: Modul[];
+}
+
+const { id, projectTags, moduls } = Astro.props;
+---
+
+<dialog
+  class="backdrop:backdrop-blur-xs backdrop:bg-gray-950/80 bg-[#DCE0E5] dark:bg-slate-950 border dark:border-gray-300 border-gray-600 shadow-2xl shadow-gray-950 rounded-lg p-4 space-y-2 w-full md:w-3/5"
+  id={`project-dialog-${id}`}
+>
+  <form class="w-full flex items-end justify-end top-0 sticky" method="dialog">
+    <button
+      id={`button-dialog-${id}`}
+      class="cursor-pointer transition-all duration-150 active:scale-110 md:py-2 md:px-4 text-black dark:text-white"
+    >
+      <Close class="size-8" />
+    </button>
+  </form>
+  <h2
+    class="text-center font-bold text-lg md:text-2xl text-black dark:text-white"
+  >
+    Detalles del proyeto
+  </h2>
+  <div
+    class="flex flex-col lg:flex-row items-start justify-center gap-y-4 md:gap-x-14 w-full"
+  >
+    <div>
+      <h4 class="text-black dark:text-white font-bold">Backend</h4>
+      <div class="flex flex-wrap mt-4">
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {
+            projectTags?.backend?.tags?.map((tag) => {
+              const TagIcon = ICONS_COMPONENTS[tag.icon];
+              return (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <TagIcon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-black dark:text-white font-bold">Frontend</h4>
+      <div class="flex flex-wrap mt-4">
+        <ul class="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {
+            projectTags?.frontend?.tags?.map((tag) => {
+              const TagIcon = ICONS_COMPONENTS[tag.icon];
+              return (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <TagIcon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full">
+    <h4 class="text-black dark:text-white font-bold">Funcionalidades</h4>
+    {
+      moduls?.map((modul) => (
+        <details class="flex items-start justify-center flex-col space-y-2 px-6 w-full my-0">
+          <summary class="text-black dark:text-white">
+            {modul.titleModuls}
+          </summary>
+          {modul.infoModuls.map((info) => (
+            <ul class="list-disc px-6 my-0 w-full text-black dark:text-white">
+              <li class="m-0 font-normal w-full">{info.subtitle}</li>
+            </ul>
+          ))}
+        </details>
+      ))
+    }
+  </div>
+</dialog>
+
+<script>
+  const dialogs = document.querySelectorAll<HTMLDialogElement>(
+    'dialog[id^="project-dialog-"]',
+  );
+
+  dialogs.forEach((dialog) => {
+    dialog.addEventListener("close", () => {
+      document.body.classList.remove("overflow-hidden");
+    });
+  });
+</script>

@@ -1,0 +1,14 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import { EXPERIENCIE } from "../components/const/data-site";
+---
+
+<ol class="relative mt-8">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

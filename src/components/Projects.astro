@@ -1,0 +1,192 @@
+---
+import Link from "../components/icons/iconsTools/Link.astro";
+import GitHub from "../components/icons/iconsSocials/GitHub.astro";
+import NextJS from "../components/icons/iconsPrograms/Next.astro";
+import Html from "../components/icons/iconsPrograms/Html.astro";
+import Tailwind from "../components/icons/iconsPrograms/Tailwind.astro";
+import JavaScript from "../components/icons/iconsPrograms/JavaScript.astro";
+import Css from "../components/icons/iconsPrograms/Css.astro";
+import React from "../components/icons/iconsPrograms/React.astro";
+import LinkButton from "./LinkButton.astro";
+import Mysql from "../components/icons/iconsPrograms/Mysql.astro";
+import Sql from "../components/icons/iconsPrograms/Sql.astro";
+import TypeScript from "./icons/iconsPrograms/TypeScript.astro";
+import AstroIcon from "./icons/iconsPrograms/AstroIcon.astro";
+import Testimony from "./icons/iconsTools/Testimony.astro";
+import Verify from "./icons/iconsSocials/Verify.astro";
+import View from "./icons/View.astro";
+import { PROJECTS } from "./const/data-site";
+import Express from "./icons/iconsPrograms/Express.astro";
+import Swagger from "./icons/iconsPrograms/Swagger.astro";
+import BetterAuth from "./icons/iconsPrograms/BetterAuth.astro";
+import ReactQueryIcon from "./icons/iconsPrograms/ReactQueryIcon.astro";
+import ReactRouter from "./icons/iconsPrograms/ReactRouter.astro";
+import Zod from "./icons/iconsPrograms/Zod.astro";
+import Shadcn from "./icons/iconsPrograms/Shadcn.astro";
+import Node from "./icons/iconsPrograms/Node.astro";
+import RadixUI from "./icons/iconsPrograms/RadixUI.astro";
+import JWT from "./icons/iconsPrograms/JWT.astro";
+import ModalViewProject from "./ModalViewProject.astro";
+
+const ICONS_COMPONENTS: Record<string, any> = {
+  html: Html,
+  css: Css,
+  javascript: JavaScript,
+  typescript: TypeScript,
+  tailwindcss: Tailwind,
+  astroIcon: AstroIcon,
+  react: React,
+  next_js: NextJS,
+  mysql: Mysql,
+  sql: Sql,
+  node_js: Node,
+  express_js: Express,
+  swagger: Swagger,
+  better_auth: BetterAuth,
+  reactquery: ReactQueryIcon,
+  reactrouter: ReactRouter,
+  zod: Zod,
+  shadcn: Shadcn,
+  radixui: RadixUI,
+  jwt: JWT,
+};
+---
+
+<div class="grid lg:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-8">
+  {
+    PROJECTS.map(
+      ({
+        id,
+        image,
+        title,
+        description,
+        tags,
+        link,
+        github,
+        isTagsBackendAndFrontend,
+        IsProjectUnderConstruction,
+        projectTags,
+        experienceCustomers,
+        moduls
+      }) => (
+        <article class="flex bg-slate-300/35 dark:bg-slate-700/35 p-4 rounded-lg flex-col group items-center shadow-2xl hover:scale-105 transition duration-300">
+          <div class="w-full">
+            <div class="relative w-full flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-t-lg md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+              <img
+                loading="lazy"
+                alt="Recién llegado vs 5 años en Nueva Zelanda"
+                class="object-fill object-top w-full lg:h-56 transition duration-500 md:scale-110 md:group-hover:scale-105"
+                loading="lazy"
+                src={image}
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col items-start justify-center w-full">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mt-4">
+              {title}
+            </h3>
+            {isTagsBackendAndFrontend == false ? (
+              <div class="flex flex-wrap mt-4">
+                <ul class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  {tags?.map((tag) => {
+                    const TagIcon = ICONS_COMPONENTS[tag.icon];
+                    return (
+                      <li>
+                        <span
+                          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                        >
+                          <TagIcon class="size-4" />
+                          {tag.name}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ) : null}
+            <div class="text-gray-700 dark:text-gray-400 my-2 flex flex-col md:flex-row items-start md:items-center md:justify-between w-full">
+              {description}
+              <span class={`text-sm text-gray-700 border rounded-full py-0 px-2 ${IsProjectUnderConstruction == true ? "bg-red-400 border-red-600": "bg-cyan-400 border-cyan-600"}`}>{IsProjectUnderConstruction == true ? "En construcción" : "Finalizado"}</span>
+            </div>
+
+            <div class="w-full">
+              <div class="w-full flex items-center justify-center gap-x-2">
+                <Testimony class="size-4" />
+                <h3 class="w-full">Reseña del cliente:</h3>
+              </div>
+              <blockquote class="italic">
+                <p class="text-sm">{experienceCustomers?.review}</p>
+
+                <footer class="blok my-3 not-italic">
+                  <h3>{experienceCustomers?.name_customer}</h3>
+                  <p>{experienceCustomers?.workstation}</p>
+                  <div class="flex items-center justify-start w-full">
+                    <cite class="font-bold">
+                      {experienceCustomers?.company}
+                    </cite>
+                    <div
+                      title="Cliente verificado"
+                      aria-label="Cliente verificado"
+                    >
+                      <Verify class="size-8" />
+                    </div>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+
+            {isTagsBackendAndFrontend == true ? (
+              <button
+                data-dialog-target={`project-dialog-${id}`}
+                class="flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black w-full"
+                type="button"
+              >
+                <View class="size-6" />
+                Ver detalles
+              </button>
+              <ModalViewProject 
+                id={id}
+                projectTags={projectTags}
+                moduls={moduls}
+              />
+            ) : null}
+
+            <div class="flex flex-col items-center mt-4 gap-4 w-full">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-6" />
+                  Ver sitio web
+                </LinkButton>
+              )}
+            </div>
+          </div>
+        </article>
+      ),
+    )
+  }
+</div>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-dialog-target]",
+  );
+
+  buttons.forEach((button) => {
+    const dialogId = button.dataset.dialogTarget;
+    const dialog = dialogId
+    ? (document.getElementById(dialogId) as HTMLDialogElement | null)
+    : null;
+
+    button.addEventListener("click", () => {
+      dialog?.showModal();
+      document.body.classList.add('overflow-hidden');
+    });
+  });
+</script>

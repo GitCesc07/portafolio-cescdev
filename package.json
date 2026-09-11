@@ -1,0 +1,21 @@
+{
+  "name": "portafolio-cescdev",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/onest": "^5.0.2",
+    "astro": "^7.3.2",
+    "cookie": "2.0.1",
+    "tailwindcss": "^3.4.1",
+    "typed.js": "^2.1.0"
+  }
+}

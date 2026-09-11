@@ -1,0 +1,14 @@
+---
+import Educacionitem from "./Educacionitem.astro";
+import { EDUCACION } from "../components/const/data-site";
+---
+
+<ol class="relative mt-8">
+  {
+    EDUCACION.map((educacion) => (
+      <li class="">
+        <Educacionitem {...educacion} />
+      </li>
+    ))
+  }
+</ol>
