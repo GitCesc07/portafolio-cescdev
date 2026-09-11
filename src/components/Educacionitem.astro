@@ -47,7 +47,7 @@ const { title, company, description, resource, date, title_resource } =
       resource && (
         <SocialPill download={`${title}.pdf`} href={`${resource}`}>
           <Download class="size-6 dark:fill-white fill-slate-700" />
-          {title_resource}
+          <span class="text-sm md:text-lg">{title_resource}</span>
         </SocialPill>
       )
     }

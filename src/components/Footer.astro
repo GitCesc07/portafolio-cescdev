@@ -11,6 +11,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >© {currentYear}
+      {" "}
       <button
         aria-label="Boton inicio"
         id="button-home"
@@ -22,15 +23,23 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
       Casi todos los derechos reservados.
     </span>
     <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+      class="flex flex-wrap gap-x-8 md:gap-x-4 items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a
+          href="https://api.whatsapp.com/send?phone=50575437011&text=%C2%A1¡Hola! Vi tu portafolio web y me interesa contratarte para un proyecto. ¿Tienes disponibilidad?"
+          class="hover:underline">Contáctame</a
+        >
       </li>
+
       <li>
         <a href="mailto:cesarurroz.dev@gmail.com" class="hover:underline"
           >Contacto</a
         >
+      </li>
+
+      <li>
+        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
       </li>
     </ul>
   </div>
