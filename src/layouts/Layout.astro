@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { siteInfo } from "../components/const/data-site";
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import "../style/index.css";
 
 interface Props {
@@ -45,7 +47,8 @@ const {
     <!-- Required -->
     <title>{title}</title>
 
-    <!-- <ClientRouter /> -->
+    <Analytics />
+    <SpeedInsights />
   </head>
 
   <body class="relative text-black dark:text-white">
