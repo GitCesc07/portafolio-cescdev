@@ -69,7 +69,7 @@ const ICONS_COMPONENTS: Record<string, any> = {
         experienceCustomers,
         moduls
       }) => (
-        <article class="flex bg-slate-300/35 dark:bg-slate-700/35 p-4 rounded-lg flex-col group items-center shadow-2xl hover:scale-105 transition duration-300">
+        <article class="flex bg-slate-300/35 dark:bg-slate-700/35 p-4 rounded-lg flex-col group items-center justify-between shadow-2xl hover:scale-105 transition duration-300">
           <div class="w-full">
             <div class="relative w-full flex flex-col items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-t-lg md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
               <img
@@ -80,8 +80,6 @@ const ICONS_COMPONENTS: Record<string, any> = {
                 src={image}
               />
             </div>
-          </div>
-
           <div class="flex flex-col items-start justify-center w-full">
             <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mt-4">
               {title}
@@ -135,38 +133,42 @@ const ICONS_COMPONENTS: Record<string, any> = {
                 </footer>
               </blockquote>
             </div>
-
-            {isTagsBackendAndFrontend == true ? (
-              <button
-                data-dialog-target={`project-dialog-${id}`}
-                class="flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black w-full"
-                type="button"
-              >
-                <View class="size-6" />
-                Ver detalles
-              </button>
-              <ModalViewProject 
-                id={id}
-                projectTags={projectTags}
-                moduls={moduls}
-              />
-            ) : null}
-
-            <div class="flex flex-col items-center mt-4 gap-4 w-full">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <Link class="size-6" />
-                  Ver sitio web
-                </LinkButton>
-              )}
-            </div>
           </div>
+          </div>
+
+
+            <div class="w-full">
+              {isTagsBackendAndFrontend == true ? (
+                <button
+                  data-dialog-target={`project-dialog-${id}`}
+                  class="flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-white transition bg-gray-800 border border-gray-600 focus-visible:ring-yellow-500/80 text-md hover:bg-gray-800 hover:border-gray-900 group rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black w-full"
+                  type="button"
+                >
+                  <View class="size-6" />
+                  Ver detalles
+                </button>
+                <ModalViewProject 
+                  id={id}
+                  projectTags={projectTags}
+                  moduls={moduls}
+                />
+              ) : null}
+              
+              <div class="flex flex-col items-center mt-4 gap-4 w-full">
+                {github && (
+                  <LinkButton href={github}>
+                    <GitHub class="size-6" />
+                    Code
+                  </LinkButton>
+                )}
+                {link && (
+                  <LinkButton href={link}>
+                    <Link class="size-6" />
+                    Ver sitio web
+                  </LinkButton>
+                )}
+              </div>
+            </div>
         </article>
       ),
     )

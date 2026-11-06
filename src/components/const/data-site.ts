@@ -6,7 +6,7 @@ export const siteInfo = {
 export const TAGS = {
     NEXT: {
         name: "Next.js",
-        class: "bg-black dark:text-white",
+        class: "dark:bg-slate-400 bg-slate-100 text-black dark:text-white",
         icon: "next_js",
     },
     TAILWIND: {
@@ -86,7 +86,7 @@ export const TAGS = {
     },
     SHADCN: {
         name: "Shadcn",
-        class: "bg-white text-black",
+        class: "dark:bg-slate-700 bg-slate-400 text-black dark:text-white",
         icon: "shadcn"
     },
     REACTQUERYICON: {
@@ -263,6 +263,71 @@ export const PROJECTS = [
     },
     {
         id: 3,
+        title: "Sistema control perfumería",
+        description: "Sistema control perfumería",
+        link: "#",
+        github: "",
+        image: "/img/sistem-perfum.webp",
+        isTagsBackendAndFrontend: true,
+        IsProjectUnderConstruction: true,
+        experienceCustomers:
+        {
+            name_customer: "Carlos Mendoza",
+            workstation: "Dueño de perfumería",
+            company: "Carlos Mendoza",
+            review: ""
+        },
+        projectTags: {
+            backend: {
+                tags: [TAGS.NEXT, TAGS.BETTERAUTH]
+            },
+            frontend: {
+                tags: [TAGS.NEXT, TAGS.SHADCN, TAGS.TAILWIND, TAGS.BETTERAUTH, TAGS.ZOD]
+            }
+        },
+        moduls: [
+            {
+                titleModuls: "Gestión de sesiones y autenticación",
+                infoModuls: [
+                    { subtitle: "Google" },
+                    { subtitle: "Facebook" },
+                ]
+            },
+            {
+                titleModuls: "Inicio",
+                infoModuls: [
+                    { subtitle: "Dashboard" }                    
+                ]
+            },
+            {
+                titleModuls: "Inventario",
+                infoModuls: [
+                    { subtitle: "Marcas" },
+                    { subtitle: "Categorías" },
+                    { subtitle: "Productos" },
+                    { subtitle: "Inventario" },
+                    { subtitle: "Reservaciones" },
+                    { subtitle: "Kardex" }
+                ]
+            },
+            {
+                titleModuls: "Compras",
+                infoModuls: [
+                    { subtitle: "Proveedores" },
+                    { subtitle: "Compras" }
+                ]
+            },
+            {
+                titleModuls: "Ventas",
+                infoModuls: [
+                    { subtitle: "Clientes" },
+                    { subtitle: "Ventas" }
+                ]
+            },
+        ]
+    },
+    {
+        id: 4,
         title: "Clínica Bio Natural Salud",
         description: "Sitio web institucional",
         link: "https://www.bionaturalsalud.clinic",
@@ -280,7 +345,7 @@ export const PROJECTS = [
         }
     },
     {
-        id: 4,
+        id: 5,
         title: "Distrifull",
         description: "Sitio web institucional",
         link: "https://www.distrifull.com",
@@ -298,7 +363,7 @@ export const PROJECTS = [
         }
     },
     {
-        id: 5,
+        id: 6,
         title: "Full505",
         description: "Sitio web institucional",
         link: "https://www.full505.com",
